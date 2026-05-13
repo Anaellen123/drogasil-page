@@ -1,0 +1,124 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #1f1e1e;
+}
+
+.page{
+    min-height: 100vh;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 16px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* imagem de fundo arredondada */
+.page::before{
+    content: "";
+    position: absolute;
+
+    width: min(90%, 520px);
+    height: 520px;
+
+    background-image: url("img/loja.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 28px;
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+/* links ficam por cima da imagem */
+.card-links{
+    width: min(90%, 460px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    padding: 22px;
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(4px);
+
+    position: relative;
+    z-index: 1;
+}
+
+.column{
+    width: 100%;
+    min-height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    color: #000;
+    font-size: 17px;
+    font-weight: 700;
+
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+
+    transition: 0.3s ease;
+}
+
+.column:hover{
+    transform: translateY(-3px);
+    background: #ffffff;
+    color: #b80038;
+}
+
+@media(max-width: 768px){
+    .page::before{
+        width: 92%;
+        height: 70vh;
+        border-radius: 24px;
+    }
+
+    .card-links{
+        width: 100%;
+        max-width: 380px;
+    }
+}
+
+@media(max-width: 480px){
+    .page{
+        padding: 20px;
+    }
+
+    .page::before{
+        width: 92%;
+        height: 65vh;
+        border-radius: 20px;
+    }
+
+    .card-links{
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .column{
+        min-height: 46px;
+        font-size: 15px;
+    }
+}
